@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv('datasource.csv',nrows=10)
+data = pd.read_csv('datasource.csv',nrows=5)
 #import sys
 #print(sys.executable)
 
@@ -19,6 +19,6 @@ def index():
 def recommend():
     keyword = request.args.get('keyword')
 
-    print (data)
+    new_data = data
     print ("\n\n")
-    return "Hi Noman you searching for ...\n"+keyword
+    return "Hi Noman you searching for ...\n"+keyword+"\n"
