@@ -1,7 +1,7 @@
 import pickle
 
-movies_list = pickle.load(open("resources/movies_list.pkl", 'rb'))
-similarity = pickle.load(open("resources/similarity.pkl", 'rb'))
+movies_list = pickle.load(open(".resources/movies_list.pkl", 'rb'))
+similarity = pickle.load(open(".resources/similarity.pkl", 'rb'))
 
 #print(similarity)
 def recommend(keyword):

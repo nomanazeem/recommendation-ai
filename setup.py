@@ -32,8 +32,8 @@ similarity = cosine_similarity(vector)
 #recommend("Iron Man")
 
 import pickle
-pickle.dump(new_data, open('resources/movies_list.pkl', 'wb'))
-pickle.dump(similarity, open('resources/similarity.pkl', 'wb'))
+pickle.dump(new_data, open('.resources/movies_list.pkl', 'wb'))
+pickle.dump(similarity, open('.resources/similarity.pkl', 'wb'))
 
 #movies = pickle.load(open('movies_list.pkl', 'rb'))
 #print(movies)
