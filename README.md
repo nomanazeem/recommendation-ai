@@ -7,7 +7,6 @@ pip3 install -U scikit-learn scipy matplotlib
 
 pip3 install flask       
 
-
 python3 setup.py               
 
-Flask run 
+python3 -m flask run
