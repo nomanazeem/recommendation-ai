@@ -2,7 +2,7 @@ import csv
 import random
 
 # Define the years, makes, and part names
-years = list(range(2010, 2024 + 1))
+years = list(range(2000, 2024 + 1))
 makes = ["Honda", "Toyota", "BMW", "Mercedes-Benz", "Ford", "Chevrolet", "Nissan", "Hyundai", "Kia", "Volkswagen", "Audi", "Mazda", "Subaru", "Lexus", "Volvo", "Porsche", "Jaguar", "Fiat", "Peugeot"]
 part_names = ["Air Filter", "Oil Filter", "Brake Pad", "Spark Plug", "Battery", "Fuel Pump", "Radiator", "Alternator", "Headlight", "Taillight", "Exhaust", "Transmission", "Clutch", "Water Pump", "Timing Belt", "Shock Absorber", "Muffler", "Windshield Wiper", "Coolant Hose"]
 
