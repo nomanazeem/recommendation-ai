@@ -3,10 +3,12 @@ recommendation-ai
 
 source .venv/bin/activate
 
-pip3 install -U scikit-learn scipy matplotlib
-
+pip3 install pandas
+pip3 install pandas scikit-learn
 pip3 install flask       
+#pip3 install Flask mysql-connector-python pandas scikit-learn
 
-python3 setup.py
+python setup.py
+python app.py
 
-python3 -m flask run
+http://127.0.0.1:5000/recommend?keyword=Toyota

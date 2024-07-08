@@ -1,13 +1,30 @@
+#pip install Flask mysql-connector-python pandas scikit-learn
+
+
 import pandas as pd
+import mysql.connector
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-def load_csv(file_path):
-    """Load CSV file into a pandas DataFrame."""
-    return pd.read_csv(file_path)
+def connect_to_db():
+    """Connect to the MySQL database."""
+    return mysql.connector.connect(
+        host="your_host",  # e.g., "localhost"
+        user="your_user",  # e.g., "root"
+        password="your_password",
+        database="your_database"
+    )
+
+def load_data_from_db():
+    """Load data from MySQL database into a pandas DataFrame."""
+    db_connection = connect_to_db()
+    query = "SELECT * FROM tbl_parts"
+    data = pd.read_sql(query, db_connection)
+    db_connection.close()
+    return data
 
 def preprocess_data(data):
     """Combine the text features for TF-IDF vectorization."""
@@ -37,16 +54,13 @@ def recommend(data, keyword):
     # Return the most similar items
     return data.iloc[similar_indices]
 
-# Load the CSV file
-file_path = 'car_parts.csv'
-data = load_csv(file_path)
-
 @app.route('/recommend', methods=['GET'])
 def recommend_endpoint():
     keyword = request.args.get('keyword', '')
     if not keyword:
         return jsonify({"error": "Keyword parameter is required"}), 400
 
+    data = load_data_from_db()
     recommendations = recommend(data, keyword)
     return recommendations.to_json(orient='records')
 

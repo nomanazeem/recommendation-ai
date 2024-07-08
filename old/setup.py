@@ -3,11 +3,11 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-data = pd.read_csv('autoparts.csv')
+data = pd.read_csv('car_parts.csv')
 autoparts = data[['year', 'make','part_name','description']]
 #print(autoparts)
 
-cv = CountVectorizer(max_features=10000, stop_words='english')
+cv = CountVectorizer(max_features=1000, stop_words='english')
 #print(cv)
 
 vector = cv.fit_transform(autoparts['description'].values.astype('U')).toarray()

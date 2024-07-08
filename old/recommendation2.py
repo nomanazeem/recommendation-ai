@@ -1,9 +1,6 @@
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from flask import Flask, request, jsonify
-
-app = Flask(__name__)
 
 def load_csv(file_path):
     """Load CSV file into a pandas DataFrame."""
@@ -41,14 +38,9 @@ def recommend(data, keyword):
 file_path = 'car_parts.csv'
 data = load_csv(file_path)
 
-@app.route('/recommend', methods=['GET'])
-def recommend_endpoint():
-    keyword = request.args.get('keyword', '')
-    if not keyword:
-        return jsonify({"error": "Keyword parameter is required"}), 400
+# Example usage
+keyword = '2015 Taillight'  # You can change this to any keyword like 'air filter' or '2012'
+recommendations = recommend(data, keyword)
 
-    recommendations = recommend(data, keyword)
-    return recommendations.to_json(orient='records')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# Display recommendations
+print(recommendations)
