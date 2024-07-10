@@ -2,6 +2,8 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, jsonify
+from PIL import Image, ImageDraw, ImageFont
+import os
 
 app = Flask(__name__)
 
@@ -13,6 +15,7 @@ def preprocess_data(data):
     """Combine the text features for TF-IDF vectorization."""
     data['Combined'] = data['year'].astype(str) + ' ' + data['make'] + ' ' + data['part_name']
     return data
+
 
 def recommend(data, keyword):
     """Recommend car parts based on the given keyword using TF-IDF and cosine similarity."""
