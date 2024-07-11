@@ -41,7 +41,7 @@ def recommend(data, keyword):
     return data.iloc[similar_indices]
 
 # Load the CSV file
-file_path = 'car_parts.csv'
+file_path = 'car_parts_with_images.csv'
 data = load_csv(file_path)
 
 @app.route('/recommend', methods=['GET'])
