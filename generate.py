@@ -2,9 +2,9 @@ import pandas as pd
 import random
 import os
 from PIL import Image, ImageDraw, ImageFont
-
+dd	dd
 # Sample data
-years = list(range(2010, 2025))
+years = list(range(1999, 2025))
 makes = ['Honda', 'Toyota', 'BMW', 'Mercedes Benz', 'Ford', 'Chevrolet', 'Nissan', 'Volkswagen', 'Audi', 'Hyundai', 'Kia', 'Mazda', 'Subaru', 'Lexus', 'Jaguar']
 part_names = ['Air Filter', 'Oil Filter', 'Brake Pads', 'Spark Plug', 'Battery', 'Alternator', 'Headlight', 'Radiator', 'Timing Belt', 'Fuel Pump', 'Water Pump', 'Brake Disc', 'Windshield Wiper', 'Exhaust Pipe', 'Tire']
 
