@@ -7,11 +7,11 @@ import java.io.InputStreamReader;
 @RestController
 public class SpeechController {
 
-    @GetMapping("/start-speech-to-text")
-    public String startSpeechToText() {
+    @GetMapping("/speech-to-text")
+    public String speechToText() {
         StringBuilder output = new StringBuilder();
         try {
-            ProcessBuilder pb = new ProcessBuilder("python3", "speech_to_text3.py");
+            ProcessBuilder pb = new ProcessBuilder("python3", "path/to/speech_to_text.py");
             pb.redirectErrorStream(true);
             Process process = pb.start();
 
