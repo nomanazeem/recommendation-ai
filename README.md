@@ -12,10 +12,17 @@ pip3 install pandas scikit-learn
 pip3 install flask       
 #pip3 install Flask mysql-connector-python pandas scikit-learn
 
+pip3 install flask-cors
+
 # for speech to text install
 # brew install portaudio
 # pip3 install SpeechRecognition pyaudio
 # pip3 install --global-option='build_ext' --global-option='-I/usr/local/include' --global-option='-L/usr/local/lib' pyaudio
+
+# Check ssl version
+# python3 -c "import ssl; print(ssl.OPENSSL_VERSION)"
+# Ignore pyhton warning
+# export PYTHONWARNINGS="ignore"
 
 python generate.py
 python app.py

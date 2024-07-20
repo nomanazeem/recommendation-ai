@@ -1,6 +1,8 @@
 import speech_recognition as sr
 import sys
 import signal
+import warnings
+warnings.filterwarnings("ignore")
 
 def signal_handler(sig, frame):
     print('Recording stopped')
