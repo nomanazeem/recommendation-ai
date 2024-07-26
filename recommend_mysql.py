@@ -22,7 +22,7 @@ def connect_to_db():
 def load_data_from_db():
     """Load data from MySQL database into a pandas DataFrame."""
     db_connection = connect_to_db()
-    query = """SELECT p.name, m.name as make, p.`year` , c.name as part_name
+    query = """SELECT p.product_id as id, p.name, p.image1, p.image2, p.our_price as ourPrice, p.description, m.name as make, p.`year`, c.name as part_name
                FROM product p
                inner join make m on m.make_id =p.make_id
                inner join category c on c.category_id = p.category_id """
@@ -56,7 +56,8 @@ def recommend(data, keyword):
     cosine_sim = cosine_similarity(keyword_tfidf, tfidf_matrix)
 
     # Get the indices of the most similar items
-    similar_indices = cosine_sim[0].argsort()[-12:][::-1]
+    # get top 10
+    similar_indices = cosine_sim[0].argsort()[-11:][::-1][1:]
 
     # Return the most similar items
     return data.iloc[similar_indices]

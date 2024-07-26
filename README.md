@@ -30,6 +30,8 @@ pip3 install flask-cors
 # pip3 install mysql-connector-python
 python generate.py
 
+# kill port 
+# npx kill-port 5000
 
 python3 app.py
 
