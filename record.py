@@ -1,18 +1,15 @@
-from flask import Flask, jsonify, request
-from flask_cors import CORS
+from flask import Blueprint, jsonify, request
 import speech_recognition as sr
 import warnings
 
 warnings.filterwarnings("ignore")
+record_blueprint = Blueprint('record', __name__)
 
-app = Flask(__name__)
-CORS(app)  # This will enable CORS for all routes
-
-def record_speech():
+def record_speech(phrase_time_limit):
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
         try:
-            audio_data = recognizer.listen(source, timeout=0, phrase_time_limit=3)
+            audio_data = recognizer.listen(source, timeout=0, phrase_time_limit=phrase_time_limit)
             text = recognizer.recognize_google(audio_data)
             return text
         except sr.WaitTimeoutError:
@@ -24,13 +21,16 @@ def record_speech():
         except Exception as e:
             return str(e)
 
-@app.route('/record', methods=['GET'])
+
+@record_blueprint.route('/record', methods=['GET'])
 def record():
     try:
-        result = record_speech()
+        phrase_time_limit = int(request.args.get('phrase_time_limit', 2))
+
+        if not phrase_time_limit:
+            return jsonify({"error": "phrase_time_limit parameter is required"}), 400
+
+        result = record_speech(phrase_time_limit)
         return jsonify({"result": result})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-if __name__ == '__main__':
-    app.run(debug=True)

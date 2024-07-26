@@ -14,6 +14,8 @@ pip3 install flask
 
 pip3 install flask-cors
 
+
+
 # for speech to text install
 # brew install portaudio
 # pip3 install SpeechRecognition pyaudio
@@ -24,7 +26,14 @@ pip3 install flask-cors
 # Ignore pyhton warning
 # export PYTHONWARNINGS="ignore"
 
+# My sql
+# pip3 install mysql-connector-python
 python generate.py
-python app.py
+
+
+python3 app.py
 
 http://127.0.0.1:5000/recommend?keyword=Toyota
+
+
+http://127.0.0.1:5000/record?phrase_time_limit=2
