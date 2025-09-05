@@ -1,0 +1,15 @@
+insert into tbl_make (make) values ('Toyota');
+insert into tbl_make (make) values ('Honda');
+insert into tbl_make (make) values ('Ford');
+insert into tbl_make (make) values ('Mercedes Benz');
+insert into tbl_make (make) values ('BMW');
+insert into tbl_make (make) values ('Hyundai');
+insert into tbl_make (make) values ('Nissan');
+insert into tbl_make (make) values ('Chevrolet');
+insert into tbl_make (make) values ('Volkswagen');
+insert into tbl_make (make) values ('Audi');
+insert into tbl_make (make) values ('Kia');
+insert into tbl_make (make) values ('Mazda');
+insert into tbl_make (make) values ('Subaru');
+insert into tbl_make (make) values ('Lexus');
+insert into tbl_make (make) values ('Jaguar');
