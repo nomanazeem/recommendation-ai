@@ -1,44 +1,114 @@
-# recommendation-ai
-recommendation-ai
+# Recommendation-AI
 
-# Create an environment
+Recommendation-AI is a machine learning–powered API built with **Flask**, **scikit-learn**, and **pandas**.  
+It provides intelligent product recommendations based on keywords, and also includes **speech-to-text integration** for real-time interaction.
+
+---
+
+## 🚀 Features
+- Keyword-based recommendation API
+- Speech-to-text input support
+- Flask REST API endpoints
+- Extensible for MySQL database integration
+- Cross-Origin Resource Sharing (CORS) enabled
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/recommendation-ai.git
+cd recommendation-ai
+```
+
+### 2. Create a virtual environment
+```bash
 python3 -m venv venv
+```
 
-# Activate the environment
-source .venv/bin/activate
+### 3. Activate the environment
+```bash
+source venv/bin/activate
+```
 
-pip3 install pandas
-pip3 install pandas scikit-learn
-pip3 install flask       
-#pip3 install Flask mysql-connector-python pandas scikit-learn
+### 4. Install dependencies
+```bash
+pip3 install -r requirements.txt
+```
 
-pip3 install flask-cors
+### Install flusk and cors:
+```bash
+pip3 install pandas scikit-learn flask flask-cors
+```
+
+### Optional for MySQL:
+```bash
+pip3 install mysql-connector-python
+```
+
+### Optional for Speech-to-Text:
+```bash
+brew install portaudio
+pip3 install SpeechRecognition pyaudio
+```
 
 
-
-# for speech to text install
-# brew install portaudio
-# pip3 install SpeechRecognition pyaudio
-# pip3 install --global-option='build_ext' --global-option='-I/usr/local/include' --global-option='-L/usr/local/lib' pyaudio
-
-# Check ssl version
-# python3 -c "import ssl; print(ssl.OPENSSL_VERSION)"
-# Ignore pyhton warning
-# export PYTHONWARNINGS="ignore"
-
-# My sql
-# pip3 install mysql-connector-python
-python generate.py
-
-# kill port 
-# npx kill-port 5000
-
+## ▶️ Usage
+Start the API
+```bash
 python3 app.py
+```
 
-http://127.0.0.1:5000/recommend?keyword=Toyota
+### Run the generator script
+```bash
+python3 generate.py
+```
 
+## 🌐 API Endpoints
 
-http://127.0.0.1:5000/record?phrase_time_limit=2
+### Keyword-based recommendation
+```bash
+GET http://127.0.0.1:5000/recommend?keyword=Toyota
+```
 
-sk-None-nGMPtMo2LkExmWN7MCcvT3BlbkFJErS6YvEO1HqzVYcovywG
+### Speech-to-text recording
+```bash
+GET http://127.0.0.1:5000/record?phrase_time_limit=2
+```
 
+## ⚙️ Utilities
+
+### Kill a process running on port 5000
+```bash
+npx kill-port 5000
+```
+
+### Check SSL version
+```bash
+python3 -c "import ssl; print(ssl.OPENSSL_VERSION)"
+```
+
+### Ignore Python warnings
+```bash
+export PYTHONWARNINGS="ignore"
+```
+
+## 📌 Notes
+
+Ensure Python 3.8+ is installed.
+
+For macOS users, pyaudio may require additional build options:
+```bash
+pip3 install --global-option='build_ext' \
+             --global-option='-I/usr/local/include' \
+             --global-option='-L/usr/local/lib' pyaudio
+```
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+For major changes, please open an issue first to discuss what you’d like to change.
+
+## 📄 License
+This project is licensed under the MIT License.
